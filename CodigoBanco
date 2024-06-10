@@ -1,0 +1,56 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.util.Scanner;
+
+public class DesafioBanco {
+    public DesafioBanco() {
+    }
+
+    public static void main(String[] args) {
+        String nome = "Guilherme Bartmann";
+        String tipoConta = "Corrente Premium";
+        double saldo = 2000.0;
+        System.out.println("______________________");
+        System.out.println("\nBem-vindo ao Java Bank");
+        System.out.println("\nNome do Cliente: " + nome);
+        System.out.println("Tipo conta: " + tipoConta);
+        System.out.println("Seu saldo é: R$" + saldo);
+        System.out.println("\n______________________");
+        String menu = "***************************\n    O que deseja fazer?\n\n1 - Extrato de Saldo\n2 - Adicionar Saldo\n3 - Transferir Saldo\n4 - Sair\n***************************\n";
+        Scanner leitura = new Scanner(System.in);
+        int escolha = 0;
+
+        while(escolha != 4) {
+            System.out.println(menu);
+            escolha = leitura.nextInt();
+            if (escolha == 1) {
+                System.out.println("O seu Saldo é de: R$" + saldo);
+            } else {
+                double retirada;
+                if (escolha == 2) {
+                    System.out.println("Insira o valor que deseja adicionar no Saldo: ");
+                    retirada = leitura.nextDouble();
+                    saldo += retirada;
+                    System.out.println("Seu Saldo é de: R$" + saldo);
+                } else if (escolha == 3) {
+                    System.out.println("Insira o valor que deseja transferir do Saldo: ");
+                    retirada = leitura.nextDouble();
+                    if (retirada > saldo) {
+                        System.out.println("Não é possível realizar essa transação.");
+                    } else {
+                        saldo -= retirada;
+                        System.out.println("Seu Saldo atual é de: R$" + saldo);
+                    }
+                } else if (escolha != 4) {
+                    System.out.println("Opção inválida.");
+                } else if (escolha == 4) {
+                    System.out.println("Obrigado por utilizar o Java Bank!");
+                }
+            }
+        }
+
+    }
+}
